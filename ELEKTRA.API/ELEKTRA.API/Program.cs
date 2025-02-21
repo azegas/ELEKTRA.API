@@ -9,13 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-var connectionName = "DefaultConnection";
-var connectionString = builder.Configuration.GetConnectionString(connectionName);
-
-if (string.IsNullOrWhiteSpace(connectionString))
-{
-    throw new InvalidOperationException($"Connection string {connectionName} not found.");
-}
+var connectionString = builder.Configuration.GetConnectionString("ELEKTRADB");
 
 builder.Services.AddDbContext<CalculationContext>(options =>
     options.UseSqlServer(connectionString));
