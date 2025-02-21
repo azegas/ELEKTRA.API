@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ELEKTRA.API.Models;
+using ELEKTRA.API.Data;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +37,14 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+// **Run database initializer**
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<CalculationContext>();
+    DbInitializer.Initialize(context);
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
