@@ -1,6 +1,33 @@
-@ELEKTRA.API_HostAddress = http://localhost:5039
+@ELEKTRA.API_HostAddress = https://localhost:7081
 
-GET {{ELEKTRA.API_HostAddress}}/weatherforecast/
+GET {{ELEKTRA.API_HostAddress}}/api/weatherforecast/
 Accept: application/json
+
+###
+
+
+GET {{ELEKTRA.API_HostAddress}}/api/calculations
+
+###
+
+POST {{ELEKTRA.API_HostAddress}}/api/calculations
+Content-Type: application/json
+
+{
+  "id": 0,
+  "deviceName": "lempa",
+  "electricityCost": 0.22,
+  "watt": 50,
+  "dailyCost": 2
+}
+
+###
+
+@id=1
+GET {{ELEKTRA.API_HostAddress}}/api/calculations/{{id}}
+
+###
+
+DELETE {{ELEKTRA.API_HostAddress}}/api/calculations/2
 
 ###
