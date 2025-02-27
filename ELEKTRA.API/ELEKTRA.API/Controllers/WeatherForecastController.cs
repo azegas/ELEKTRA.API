@@ -1,3 +1,4 @@
+using ELEKTRA.DataAccess.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ELEKTRA.API.Controllers;

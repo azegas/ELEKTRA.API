@@ -1,4 +1,4 @@
-namespace ELEKTRA.API
+namespace ELEKTRA.DataAccess.Models
 {
     public class WeatherForecast
     {

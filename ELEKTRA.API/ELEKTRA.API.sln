@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35806.99 d17.13
+VisualStudioVersion = 17.13.35806.99
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ELEKTRA.API", "ELEKTRA.API\ELEKTRA.API.csproj", "{ED0FF4F5-57AB-4DA4-8C34-77CA9354A15F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ELEKTRA.DataAccess", "ELEKTRA.DataAccess\ELEKTRA.DataAccess.csproj", "{AD0220E3-5915-43F3-8BB7-26B66511210D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{ED0FF4F5-57AB-4DA4-8C34-77CA9354A15F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED0FF4F5-57AB-4DA4-8C34-77CA9354A15F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED0FF4F5-57AB-4DA4-8C34-77CA9354A15F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD0220E3-5915-43F3-8BB7-26B66511210D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD0220E3-5915-43F3-8BB7-26B66511210D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD0220E3-5915-43F3-8BB7-26B66511210D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD0220E3-5915-43F3-8BB7-26B66511210D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ELEKTRA.API.Models;
-using ELEKTRA.API.Data;
+using ELEKTRA.DataAccess;
+using ELEKTRA.DataAccess.Extensions;
 
 
 var builder = WebApplication.CreateBuilder(args);
+
+// TODO when creating calculations part - price value 0.22 try putting into record
 
 // Add services to the container.
 
@@ -11,7 +13,7 @@ builder.Services.AddControllers();
 
 var connectionString = builder.Configuration["ConnectionStrings:ELEKTRADB"];
 
-builder.Services.AddDbContext<CalculationContext>(options =>
+builder.Services.AddDbContext<ElektraContext>(options =>
     options.UseSqlServer(Environment.GetEnvironmentVariable("ELEKTRADB") ??
     builder.Configuration.GetConnectionString("ELEKTRADB")));
 
@@ -33,13 +35,15 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+// TODO make automatic Update-Database like in ART/SEBRA
+
 // **Run database initializer**
-//using (var scope = app.Services.CreateScope())
-//{
-//    var services = scope.ServiceProvider;
-//    var context = services.GetRequiredService<CalculationContext>();
-//    DbInitializer.Initialize(context);
-//}
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<ElektraContext>();
+    DataSeeder.SeedData(context);
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

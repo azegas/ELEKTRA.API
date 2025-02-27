@@ -12,47 +12,47 @@ namespace ELEKTRA.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CalculationsController : ControllerBase
+    public class DevicesController : ControllerBase
     {
         private readonly ElektraContext _context;
 
-        public CalculationsController(ElektraContext context)
+        public DevicesController(ElektraContext context)
         {
             _context = context;
         }
 
-        // GET: api/Calculations
+        // GET: api/Devices
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Calculation>>> GetCalculations()
+        public async Task<ActionResult<IEnumerable<Device>>> GetDevices()
         {
-            return await _context.Calculations.ToListAsync();
+            return await _context.Devices.ToListAsync();
         }
 
-        // GET: api/Calculations/5
+        // GET: api/Devices/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Calculation>> GetCalculation(long id)
+        public async Task<ActionResult<Device>> GetDevice(long id)
         {
-            var calculation = await _context.Calculations.FindAsync(id);
+            var device = await _context.Devices.FindAsync(id);
 
-            if (calculation == null)
+            if (device == null)
             {
                 return NotFound();
             }
 
-            return calculation;
+            return device;
         }
 
-        // PUT: api/Calculations/5
+        // PUT: api/Devices/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCalculation(long id, Calculation calculation)
+        public async Task<IActionResult> PutDevice(long id, Device device)
         {
-            if (id != calculation.Id)
+            if (id != device.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(calculation).State = EntityState.Modified;
+            _context.Entry(device).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace ELEKTRA.API.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CalculationExists(id))
+                if (!DeviceExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace ELEKTRA.API.Controllers
             return NoContent();
         }
 
-        // POST: api/Calculations
+        // POST: api/Devices
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Calculation>> PostCalculation(Calculation calculation)
+        public async Task<ActionResult<Device>> PostDevice(Device device)
         {
-            _context.Calculations.Add(calculation);
+            _context.Devices.Add(device);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCalculation", new { id = calculation.Id }, calculation);
+            return CreatedAtAction("GetDevice", new { id = device.Id }, device);
         }
 
-        // DELETE: api/Calculations/5
+        // DELETE: api/Devices/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCalculation(long id)
+        public async Task<IActionResult> DeleteDevice(long id)
         {
-            var calculation = await _context.Calculations.FindAsync(id);
-            if (calculation == null)
+            var device = await _context.Devices.FindAsync(id);
+            if (device == null)
             {
                 return NotFound();
             }
 
-            _context.Calculations.Remove(calculation);
+            _context.Devices.Remove(device);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool CalculationExists(long id)
+        private bool DeviceExists(long id)
         {
-            return _context.Calculations.Any(e => e.Id == id);
+            return _context.Devices.Any(e => e.Id == id);
         }
     }
 }
