@@ -1,15 +1,19 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ELEKTRA.DataAccess;
 using ELEKTRA.DataAccess.Extensions;
+using ELEKTRA.API.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 // TODO when creating calculations part - price value 0.22 try putting into record
 
-// Add services to the container.
+// TODO Add services to the container.
 
 builder.Services.AddControllers();
+
+// injecting my first service!!! Can be AddSingleton, AddScoped, AddTransient
+builder.Services.AddScoped<WelcomeService>();
 
 var connectionString = builder.Configuration["ConnectionStrings:ELEKTRADB"];
 
