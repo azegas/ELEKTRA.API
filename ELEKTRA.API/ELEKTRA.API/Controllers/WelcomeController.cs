@@ -1,4 +1,5 @@
-﻿using ELEKTRA.API.Services;
+﻿using ELEKTRA.API.Interfaces;
+using ELEKTRA.API.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 
@@ -8,10 +9,10 @@ namespace ELEKTRA.API.Controllers;
 [Route("api/[controller]")]
 public class WelcomeController : ControllerBase
 {
-    private readonly WelcomeService _welcomeService;
+    private readonly IWelcomeService _welcomeService;
 
     // constructor
-    public WelcomeController(WelcomeService welcomeService)
+    public WelcomeController(IWelcomeService welcomeService)
     {
         _welcomeService = welcomeService;
     }

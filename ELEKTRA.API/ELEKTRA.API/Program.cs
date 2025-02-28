@@ -2,6 +2,7 @@
 using ELEKTRA.DataAccess;
 using ELEKTRA.DataAccess.Extensions;
 using ELEKTRA.API.Services;
+using ELEKTRA.API.Interfaces;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,7 +14,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 // injecting my first service!!! Can be AddSingleton, AddScoped, AddTransient
-builder.Services.AddScoped<WelcomeService>();
+// Injecting it as interface
+// Think of this as saying:
+// "When a component asks for an IWelcomeService, provide an instance of WelcomeService."
+builder.Services.AddScoped<IWelcomeService, WelcomeService>();
 
 var connectionString = builder.Configuration["ConnectionStrings:ELEKTRADB"];
 
