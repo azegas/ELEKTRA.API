@@ -1,22 +1,10 @@
-﻿using ELEKTRA.API.Interfaces;
-using ELEKTRA.API.Services;
-using ELEKTRA.DataAccess;
+﻿using ELEKTRA.DataAccess;
 using Microsoft.EntityFrameworkCore;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
-// TODO when creating calculations part - price value 0.22 try putting into record
-
-// TODO Add services to the container.
-
 builder.Services.AddControllers();
-
-// injecting my first service!!! Can be AddSingleton, AddScoped, AddTransient
-// Injecting it as interface
-// Think of this as saying:
-// "When a component asks for an IWelcomeService, provide an instance of WelcomeService."
-builder.Services.AddScoped<IWelcomeService, WelcomeService>();
 
 var connectionString = builder.Configuration["ConnectionStrings:ELEKTRADB"];
 

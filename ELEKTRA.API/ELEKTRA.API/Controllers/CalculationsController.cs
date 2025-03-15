@@ -1,5 +1,5 @@
 ﻿using ELEKTRA.DataAccess;
-using ELEKTRA.DataAccess.Models;
+using ELEKTRA.DataAccess.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

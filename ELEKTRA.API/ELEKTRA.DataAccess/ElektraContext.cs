@@ -1,4 +1,4 @@
-﻿using ELEKTRA.DataAccess.Models;
+﻿using ELEKTRA.DataAccess.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace ELEKTRA.DataAccess
@@ -10,6 +10,5 @@ namespace ELEKTRA.DataAccess
         {
         }
         public DbSet<Calculation> Calculations { get; set; }
-        public DbSet<Device> Devices { get; set; }
     }
 }
