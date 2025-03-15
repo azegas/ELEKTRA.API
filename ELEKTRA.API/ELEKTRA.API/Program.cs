@@ -1,8 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using ELEKTRA.DataAccess;
-using ELEKTRA.DataAccess.Extensions;
+﻿using ELEKTRA.API.Interfaces;
 using ELEKTRA.API.Services;
-using ELEKTRA.API.Interfaces;
+using ELEKTRA.DataAccess;
+using Microsoft.EntityFrameworkCore;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -42,16 +41,6 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
-
-// TODO make automatic Update-Database like in ART/SEBRA
-
-// **Run database initializer**
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
-    var context = services.GetRequiredService<ElektraContext>();
-    DataSeeder.SeedData(context);
-}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
