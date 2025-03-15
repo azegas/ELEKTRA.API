@@ -21,5 +21,7 @@
         public required double MonthlyCost { get; set; }
 
         public required double YearlyCost { get; set; }
+
+        public DateTime CreatedAt { get; set; }
     }
 }
