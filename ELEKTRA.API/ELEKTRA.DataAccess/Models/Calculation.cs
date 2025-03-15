@@ -10,7 +10,7 @@
         public Device Device { get; set; } // Required reference navigation to parent
 
         public required double ElectricityCost { get; set; }
-        
+
         public required double DailyCost { get; set; }
     }
 }

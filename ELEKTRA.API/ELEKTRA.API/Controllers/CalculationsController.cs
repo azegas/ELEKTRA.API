@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using ELEKTRA.DataAccess;
+using ELEKTRA.DataAccess.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ELEKTRA.DataAccess;
-using ELEKTRA.DataAccess.Models;
 
 namespace ELEKTRA.API.Controllers
 {

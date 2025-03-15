@@ -1,7 +1,5 @@
 ﻿using ELEKTRA.API.Interfaces;
-using ELEKTRA.API.Services;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Json;
 
 namespace ELEKTRA.API.Controllers;
 

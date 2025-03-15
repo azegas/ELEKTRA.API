@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using ELEKTRA.DataAccess.Models;
+﻿using ELEKTRA.DataAccess.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace ELEKTRA.DataAccess.Extensions
@@ -57,5 +56,5 @@ namespace ELEKTRA.DataAccess.Extensions
             context.Calculations.AddRange(calculations);
             context.SaveChanges();
         }
-    } 
+    }
 }

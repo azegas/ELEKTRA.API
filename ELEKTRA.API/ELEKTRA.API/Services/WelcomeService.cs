@@ -14,7 +14,7 @@ namespace ELEKTRA.API.Services
         public WelcomeService()
         {
             _serviceCreated = DateTime.Now;
-            _serviceId = Guid.NewGuid();    
+            _serviceId = Guid.NewGuid();
         }
 
         public string GetWelcomeMessage()
